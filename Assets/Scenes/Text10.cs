@@ -14,18 +14,28 @@ public class Text10 : MonoBehaviour
     //o mayor a 24, mostrar el  mensaje: “Ha ingresado una hora incorrecta”
 
     public int Hora;
+    bool estaAbierto;
     // Start is called before the first frame update
     void Start()
     {
-        if (Hora < 1 || Hora > 24)
+        if (Hora > 1 && Hora < 24)
         {
-
+            const int HORA_APERTURA = 10;
+            const int HORA_CIERRE = 18;
+            if (Hora < HORA_APERTURA || Hora > HORA_CIERRE)
+            {
+                estaAbierto = false;
+                Debug.Log("El estacionamiento esta abierton't");
+            }
+            else
+            {
+                estaAbierto = true;
+                Debug.Log("El estacionamiento esta abierto");
+            }
         }
-        const int HORA_APERTURA = 10;
-        const int HORA_CIERRE = 18;
-        if (Hora < HORA_APERTURA || Hora > HORA_CIERRE)
+        else
         {
-            
+                Debug.Log("Por favor inserte una hora del día");
         }
     }
 
